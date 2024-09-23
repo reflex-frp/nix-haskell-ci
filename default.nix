@@ -15,8 +15,11 @@ let haskell-nix = with haskell-nix; {
           "ghcjs" = compilers.ghc-js;
         };
       };
+
+      pin = haskellNix;
     };
 
 in {
+  nix-haskell = import ./deps/nix-haskell { inherit haskellNix; };
   inherit haskell-nix;
 }
